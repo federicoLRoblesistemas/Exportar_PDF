@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-Future<Uint8List> generarPDF(List<List<String>> miLista, List<String> encabezado) async {
+Future<Uint8List> generarPDF(List<List<String>> miLista, List<String> encabezado, double total) async {
   final pw.Document doc = pw.Document();
 
   doc.addPage(pw.MultiPage(
@@ -33,7 +33,7 @@ Future<Uint8List> generarPDF(List<List<String>> miLista, List<String> encabezado
                 ],
             ]),
             pw.Paragraph(text: ""),
-            // pw.Paragraph(text: "Subtotal: $total"),
+            pw.Paragraph(text: "Subtotal: $total"),
             pw.Padding(padding: const pw.EdgeInsets.all(10)),
           ]));
 
